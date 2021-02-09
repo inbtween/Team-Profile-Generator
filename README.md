@@ -1,6 +1,6 @@
 # Team-Profile-Generator
 
-https://github.com/inbtween/Team-Profile-Generator.git
+https://github.com/inbtween/Team-Profile-Generator.git \*
 https://inbtween.github.io/Team-Profile-Generator/
 
 # Task
