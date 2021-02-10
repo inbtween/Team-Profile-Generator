@@ -20,16 +20,16 @@ function menu() {
   const createManager = () => {
     // var manager questions in prompt()
     // .then(answer)
-    inquirer.prompt(questionsManager).then((answer) => {
+    inquirer.prompt(questionsManager).then((answers) => {
       const manager = new Manager(managername);
       teamMembers.push(manager);
-      id.push(answer.manager);
+      id.push(answers.manager);
       createTeam();
     });
   };
   const createTeam = () => {
-    inquirer.prompt(questions).then((answer) => {
-      switch (answer.choice.role) {
+    inquirer.prompt(questions).then((answers) => {
+      switch (answers.choice.role) {
         case "Engineer":
           createEngineer();
           break;
@@ -45,24 +45,24 @@ function menu() {
     // choice run enginer(), intern(), buildteam()
   };
   const createEngineer = () => {
-    inquirer.prompt(questionsEngineer).then((answer) => {
-    const engineer = new Engineer(answer.choice.role);
+    inquirer.prompt(questionsEngineer).then((answers) => {
+    const engineer = new Engineer(answers.choice.role);
     teamMembers.push(engineer);
     id.push(role.engineer);
     createEngineer();
     });
   };
   const createIntern = () => {
-    inquirer.prompt(questionsIntern).then((answer) => {
-      const intern = new Intern(answer.choice.role);
+    inquirer.prompt(questionsIntern).then((answers) => {
+      const intern = new Intern(answers.choice.role);
       teamMembers.push(intern);
       id.push(intern);
           createIntern();
     });
   };
   const buildTeam = () => {
-    inquirer.prompt(questionstTeam).then((answer) => {
-        switch (answer.choice.role) {
+    inquirer.prompt(questionstTeam).then((answers) => {
+        switch (answers.choice.role) {
           case "Engineer":
             createEngineer();
             break;
@@ -81,6 +81,7 @@ const answers = (res) => {
     ${res.id}
     ${res.office}
     ${res.email}
+    ${res.github}
     ${res.school}`  // write it to a file
     fs.writeFile(".src/index.html", html, (err) =>
       err ? console.error(err) : console.log("success")
