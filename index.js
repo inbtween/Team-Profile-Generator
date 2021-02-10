@@ -14,21 +14,22 @@ const id = [];
 
 // DATA
 
+
 // FUNCTIONS
 function menu() {
   const createManager = () => {
     // var manager questions in prompt()
     // .then(answer)
-    inquirer.prompt(questionsManager).then((name) => {
-      const manager = new Manager(name.managername);
+    inquirer.prompt(questionsManager).then((answer) => {
+      const manager = new Manager(managername);
       teamMembers.push(manager);
-      id.push(name.manager);
+      id.push(answer.manager);
       createTeam();
     });
   };
   const createTeam = () => {
-    inquirer.prompt(questions).then((choice) => {
-      switch (choice.role) {
+    inquirer.prompt(questions).then((answer) => {
+      switch (answer.choice.role) {
         case "Engineer":
           createEngineer();
           break;
@@ -44,24 +45,24 @@ function menu() {
     // choice run enginer(), intern(), buildteam()
   };
   const createEngineer = () => {
-    inquirer.prompt(questionsEngineer).then((name) => {
-    const engineer = new Engineer(name);
+    inquirer.prompt(questionsEngineer).then((answer) => {
+    const engineer = new Engineer(answer.choice.role);
     teamMembers.push(engineer);
-    id.push(name.engineer);
+    id.push(role.engineer);
     createEngineer();
     });
   };
   const createIntern = () => {
-    inquirer.prompt(questionsIntern).then((name) => {
-      const intern = new Intern(name);
+    inquirer.prompt(questionsIntern).then((answer) => {
+      const intern = new Intern(answer.choice.role);
       teamMembers.push(intern);
-      id.push(name.intern);
+      id.push(intern);
           createIntern();
     });
   };
   const buildTeam = () => {
-    inquirer.prompt(questionstTeam).then((choice) => {
-        switch (choice.role) {
+    inquirer.prompt(questionstTeam).then((answer) => {
+        switch (answer.choice.role) {
           case "Engineer":
             createEngineer();
             break;
@@ -75,6 +76,16 @@ function menu() {
 
 menu();
 
+const answers = (res) => {
+    `${res.role}
+    ${res.id}
+    ${res.office}
+    ${res.email}
+    ${res.school}`  // write it to a file
+    fs.writeFile(".src/index.html", html, (err) =>
+      err ? console.error(err) : console.log("success")
+    );
+    };
 // USER INTERACTIONS ==========================
 const questions = [
   {
