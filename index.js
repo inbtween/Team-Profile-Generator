@@ -18,10 +18,11 @@ const id = [];
 function menu() {
   const createManager = () => {
     // var manager questions in prompt()
-    inquirer.prompt("questions").then((answers) => {
-      const manager = new Manager(answers.managername);
+    // .then(answer)
+    inquirer.prompt(questionsManager).then((name) => {
+      const manager = new Manager(name.managername);
       teamMembers.push(manager);
-      id.push(answers.manager);
+      id.push(name.manager);
       createTeam();
     });
   };
@@ -42,12 +43,37 @@ function menu() {
     // switch
     // choice run enginer(), intern(), buildteam()
   };
-  const createEngineer = () => {};
-  const createIntern = () => {};
-  const buildTeam = () => {
-    //
+  const createEngineer = () => {
+    inquirer.prompt(questionsEngineer).then((name) => {
+    const engineer = new Engineer(name);
+    teamMembers.push(engineer);
+    id.push(name.engineer);
+    createEngineer();
+    });
   };
-}
+  const createIntern = () => {
+    inquirer.prompt(questionsIntern).then((name) => {
+      const intern = new Intern(name);
+      teamMembers.push(intern);
+      id.push(name.intern);
+          createIntern();
+    });
+  };
+  const buildTeam = () => {
+    inquirer.prompt(questionstTeam).then((choice) => {
+        switch (choice.role) {
+          case "Engineer":
+            createEngineer();
+            break;
+          case "Intern":
+            createIntern();
+            break;
+          default:
+            buildTeam();
+        }
+      });
+
+menu();
 
 // USER INTERACTIONS ==========================
 const questions = [
@@ -62,6 +88,70 @@ const questions = [
     choices: ["Engineer", "Intern", "None"],
   },
 ];
+const questionsManager = [
+  {
+    type: "input",
+    name: "role",
+    message: "Please enter your a name.",
+  },
+  {
+    type: "input",
+    name: "id",
+    message: "Please enter an employee ID.",
+  },
+  {
+    type: "input",
+    name: "office",
+    message: "Please enter an officer number.",
+  },
+];
+const questionsEngineer = [
+  {
+    type: "input",
+    name: "role",
+    message: "Please enter your a name.",
+  },
+  {
+    type: "input",
+    name: "id",
+    message: "Please enter an employee ID.",
+  },
+  {
+    type: "input",
+    name: "github",
+    message: "Please enter your GitHub account.",
+  },
+];
+const questionsIntern = [
+  {
+    type: "input",
+    name: "role",
+    message: "Please enter your a name.",
+  },
+  {
+    type: "input",
+    name: "id",
+    message: "Please enter an employee ID.",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Please enter an employee email.",
+  },
+  {
+    type: "input",
+    name: "school",
+    message: "Please enter your school.",
+  },
+];
+const questionsTeam = [
+    {
+      type: "list",
+      name: "role",
+      message: "what type of team member would you like to add?",
+      choices: ["Engineer", "Intern", "None"],
+    },
+  ];
 
 // Please enter your a name.
 // Please enter an employee ID.
