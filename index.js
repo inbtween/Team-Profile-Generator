@@ -165,17 +165,4 @@ const questionsTeam = [
     },
   ];
 
-// Please enter your a name.
-// Please enter an employee ID.
-// Please enter an employee email.
-// Please enter an office number.
-// Would you  like to add another employee? Engineer, Intern, Finish Team
-// do we have employees?
-// no?
-// make a manager
-// yes?
-// ask do you want to add any more
-// yes?
-// what type? (engineer, intern, manager)
-// no?
-// quit
+
