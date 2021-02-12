@@ -11,6 +11,10 @@ Is to build a Node.js command-line application that takes in information about e
 
 https://user-images.githubusercontent.com/76419703/107723097-57517e80-6cae-11eb-9032-676f74658334.mov
 
+# 2nd video link
+
+https://github.com/inbtween/Team-Profile-Generator/issues/1#issue-807477858
+
 # Screen Shot
 
 <img width="959" alt="Screen Shot 2021-02-11 at 9 17 36 PM" src="https://user-images.githubusercontent.com/76419703/107723203-9f70a100-6cae-11eb-97b4-89c7aae8413e.png">
