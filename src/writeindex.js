@@ -25,11 +25,11 @@ const generateTeam = (team) => {
     <h5 id="employee-name">${engineer.getName()}</h5>
     <li class="id">${engineer.getId()}</li>
     <li class="email">$ ${engineer.getEmail()}</li>
-    <li class="office-no">${engineer.getOfficeNumber()}</li>
+    <li class="gitHub">${engineer.getGithub()}</li>
  </div>
     `;
   };
-  const html = [];
+
   html.push(
     team
       .filter((employee) => employee.getRole() === "Engineer")
@@ -43,11 +43,11 @@ const generateTeam = (team) => {
     <h5 id="employee-name">${intern.getName()}</h5>
     <li class="id">${intern.getId()}</li>
     <li class="email">$ ${intern.getEmail()}</li>
-    <li class="office-no">${intern.getOfficeNumber()}</li>
+    <li class="school">${intern.getSchool()}</li>
  </div>
     `;
   };
-  const html = [];
+
   html.push(
     team
       .filter((employee) => employee.getRole() === "Intern")
