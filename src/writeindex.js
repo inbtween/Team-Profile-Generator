@@ -17,18 +17,54 @@ const generateTeam = (team) => {
       .filter((employee) => employee.getRole() === "Manager")
       .map((manager) => generateManager(manager))
   );
-  // html.push(
-  //   team
-  //     .filter((employee) => employee.getRole() === "Engineer")
-  //     .map((engineer) => generateEngineer(engineer))
-  //     .join("")
-  // );
-  // html.push(
-  //   team
-  //     .filter((employee) => employee.getRole() === "Intern")
-  //     .map((intern) => generateIntern(intern))
-  //     .join("")
-  // );
+  const generateEngineer = (engineer) => {
+    console.log(engineer);
+    // build a string with user engineer responses
+    return `
+    <div class="card">
+    <h5 id="employee-name">${engineer.getName()}</h5>
+    <li class="id">${engineer.getId()}</li>
+    <li class="email">$ ${engineer.getEmail()}</li>
+    <li class="office-no">${engineer.getOfficeNumber()}</li>
+ </div>
+    `;
+  };
+  const html = [];
+  html.push(
+    team
+      .filter((employee) => employee.getRole() === "Engineer")
+      .map((engineer) => generateEngineer(engineer))
+  );
+  const generateIntern = (intern) => {
+    console.log(intern);
+    // build a string with user internponses
+    return `
+    <div class="card">
+    <h5 id="employee-name">${intern.getName()}</h5>
+    <li class="id">${intern.getId()}</li>
+    <li class="email">$ ${intern.getEmail()}</li>
+    <li class="office-no">${intern.getOfficeNumber()}</li>
+ </div>
+    `;
+  };
+  const html = [];
+  html.push(
+    team
+      .filter((employee) => employee.getRole() === "Intern")
+      .map((intern) => generateIntern(intern))
+  );
+  html.push(
+    team
+      .filter((employee) => employee.getRole() === "Engineer")
+      .map((engineer) => generateEngineer(engineer))
+      .join("")
+  );
+  html.push(
+    team
+      .filter((employee) => employee.getRole() === "Intern")
+      .map((intern) => generateIntern(intern))
+      .join("")
+  );
   return html.join("");
 };
 
