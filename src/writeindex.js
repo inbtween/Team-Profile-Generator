@@ -6,7 +6,7 @@ const generateTeam = (team) => {
     <div class="card">
     <h5 id="employee-name">${manager.getName()}</h5>
     <li class="id">${manager.getId()}</li>
-    <li class="email">$ ${manager.getEmail()}</li>
+    <li class="email">${manager.getEmail()}</li>
     <li class="office-no">${manager.getOfficeNumber()}</li>
  </div>
     `;
@@ -24,7 +24,7 @@ const generateTeam = (team) => {
     <div class="card">
     <h5 id="employee-name">${engineer.getName()}</h5>
     <li class="id">${engineer.getId()}</li>
-    <li class="email">$ ${engineer.getEmail()}</li>
+    <li class="email">${engineer.getEmail()}</li>
     <li class="gitHub">${engineer.getGithub()}</li>
  </div>
     `;
@@ -42,7 +42,7 @@ const generateTeam = (team) => {
     <div class="card">
     <h5 id="employee-name">${intern.getName()}</h5>
     <li class="id">${intern.getId()}</li>
-    <li class="email">$ ${intern.getEmail()}</li>
+    <li class="email">${intern.getEmail()}</li>
     <li class="school">${intern.getSchool()}</li>
  </div>
     `;
