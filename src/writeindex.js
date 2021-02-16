@@ -3,11 +3,12 @@ const generateTeam = (team) => {
     console.log(manager);
     // build a string with user managerponses
     return `
-    <div class="card">
-    <h5 id="employee-name">${manager.getName()}</h5>
-    <li class="id">${manager.getId()}</li>
-    <li class="email">${manager.getEmail()}</li>
-    <li class="office-no">${manager.getOfficeNumber()}</li>
+    <div class="card" style="width:18rem">
+    <h5 class="card-header text-white bg-primary mb-3" id="employee-name">${manager.getName()}</h5>
+    <h6 class="card-header id="employee-name">${manager.getRole()}</h6>
+    <li class="id list-group-item">Id No: ${manager.getId()}</li>
+    <li class="email list-group-item">Email: ${manager.getEmail()}</li>
+    <li class="office-no list-group-item">Office No: ${manager.getOfficeNumber()}</li>
  </div>
     `;
   };
@@ -21,11 +22,12 @@ const generateTeam = (team) => {
     console.log(engineer);
     // build a string with user engineer responses
     return `
-    <div class="card">
-    <h5 id="employee-name">${engineer.getName()}</h5>
-    <li class="id">${engineer.getId()}</li>
-    <li class="email">${engineer.getEmail()}</li>
-    <li class="gitHub">${engineer.getGithub()}</li>
+    <div class="card" style="width:18rem">
+    <h5 class="card-header text-white bg-primary mb-3" id="employee-name">${engineer.getName()}</h5>
+    <h6 class="card-header id="employee-name">${engineer.getRole()}</h6>
+    <li class="id list-group-item">Id No: ${engineer.getId()}</li>
+    <li class="email list-group-item">Email: ${engineer.getEmail()}</li>
+    <li class="gitHub list-group-item">GitHub: ${engineer.getGithub()}</li>
  </div>
     `;
   };
@@ -40,10 +42,11 @@ const generateTeam = (team) => {
     // build a string with user internponses
     return `
     <div class="card">
-    <h5 id="employee-name">${intern.getName()}</h5>
-    <li class="id">${intern.getId()}</li>
-    <li class="email">${intern.getEmail()}</li>
-    <li class="school">${intern.getSchool()}</li>
+    <h5 class="card-header text-white bg-primary mb-3" id="employee-name">${intern.getName()}</h5>
+    <h6 class="card-header id="employee-name">${intern.getRole()}</h6>
+    <li class="id list-group-item">Id No: ${intern.getId()}</li>
+    <li class="email list-group-item">Email: ${intern.getEmail()}</li>
+    <li class="school list-group-item">School: ${intern.getSchool()}</li>
  </div>
     `;
   };
@@ -53,18 +56,7 @@ const generateTeam = (team) => {
       .filter((employee) => employee.getRole() === "Intern")
       .map((intern) => generateIntern(intern))
   );
-  html.push(
-    team
-      .filter((employee) => employee.getRole() === "Engineer")
-      .map((engineer) => generateEngineer(engineer))
-      .join("")
-  );
-  html.push(
-    team
-      .filter((employee) => employee.getRole() === "Intern")
-      .map((intern) => generateIntern(intern))
-      .join("")
-  );
+
   return html.join("");
 };
 

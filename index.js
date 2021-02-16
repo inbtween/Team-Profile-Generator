@@ -74,7 +74,7 @@ const questionsEngineer = [
 const questionsIntern = [
   {
     type: "input",
-    name: "role",
+    name: "name",
     message: "Please enter your a name.",
   },
   {
